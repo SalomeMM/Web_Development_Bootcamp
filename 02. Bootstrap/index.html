@@ -38,7 +38,7 @@
     <!-- Nav Bar -->
     <div class="container-fluid">
       <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" href="">Tindog</a>
+        <a class="navbar-brand" href="">tindog</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -62,11 +62,11 @@
       <div class="row">
         <div class="col-lg-6">
           <h1>Meet new and interesting dogs nearby.</h1>
-          <button type="button" class="btn btn-lg btn-dark"><i class="fab fa-apple"></i> Download</button>
-          <button type="button" class="btn btn-lg btn-outline-light"><i class="fab fa-google-play"></i> Download</button>
+          <button type="button" class="btn btn-lg download-button btn-dark"><i class="fab fa-apple"></i> Download</button>
+          <button type="button" class="btn btn-lg download-button btn-outline-light"><i class="fab fa-google-play"></i> Download</button>
         </div>
         <div class="col-lg-6">
-          <img src="images/iphone6.png" alt="iphone-mockup" />
+          <img class="title-image rotated" src="images/iphone6.png" alt="iphone-mockup" />
         </div>
       </div>
     </div>
@@ -75,30 +75,65 @@
   <!-- Features -->
 
   <section id="features">
-    <h3>Easy to use.</h3>
-    <p>So easy to use, even your dog could do it.</p>
-
-    <h3>Elite Clientele</h3>
-    <p>We have all the dogs, the greatest dogs.</p>
-
-    <h3>Guaranteed to work.</h3>
-    <p>Find the love of your dog's life or your money back.</p>
+    <!-- <div class="container-fluid container-features white-section"> -->
+      <div class="row">
+        <div class="col-lg-4 col-md-12 feature-box">
+          <i class="fas fa-check-circle icons-features fa-4x" aria-hidden="true"></i>
+          <h3 class="title-features">Easy to use.</h3>
+          <p class="features-description">
+            So easy to use, even your dog could do it.
+          </p>
+        </div>
+        <div class="col-lg-4 col-md-12 feature-box">
+          <i class="fas fa-bullseye icons-features fa-4x" aria-hidden="true"></i>
+          <h3 class="title-features">Elite Clientele</h3>
+          <p class="features-description">
+            We have all the dogs, the greatest dogs.
+          </p>
+        </div>
+        <div class="col-lg-4 col-md-12 feature-box">
+          <i class="fas fa-heart icons-features fa-4x" aria-hidden="true"></i>
+          <h3 class="title-features">Guaranteed to work.</h3>
+          <p class="features-description">
+            Find the love of your dog's life or your money back.
+          </p>
+        </div>
+      </div>
+    <!-- </div> -->
   </section>
 
   <!-- Testimonials -->
 
-  <section id="testimonials">
-    <h2>
-      I no longer have to sniff other dogs for love. I've found the hottest
-      Corgi on TinDog. Woof.
-    </h2>
-    <img src="images/dog-img.jpg" alt="dog-profile" />
-    <em>Pebbles, New York</em>
-
-    <!-- <h2 class="testimonial-text">My dog used to be so lonely, but with TinDog's help, they've found the love of their life. I think.</h2>
-    <img class="testimonial-image" src="images/lady-img.jpg" alt="lady-profile">
-    <em>Beverly, Illinois</em> -->
-  </section>
+<section id="testimonials" class="coloured-section">
+      <div id="testimonial-carousel" class="carousel slide" data-ride="false">
+        <div class="carousel-inner">
+          <div class="container-fluid carousel-item active">
+            <h2 class="big-heading">
+              I no longer have to sniff other dogs for love. I've found the
+              hottest Corgi on TinDog. Woof.
+            </h2>
+            <img class="testimonial-image" src="images/dog-img.jpg" alt="dog-profile">
+            <em>Pebbles, New York</em>
+          </div>
+          <div class="container-fluid carousel-item">
+            <h2 class="big-heading">
+              My dog used to be so lonely, but with TinDog's help, they've found
+              the love of their life. I think.
+            </h2>
+            <img class="testimonial-image" src="images/lady-img.jpg" alt="lady-profile">
+            <em>Beverly, Illinois</em>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#testimonial-carousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </section>
 
   <!-- Press -->
 

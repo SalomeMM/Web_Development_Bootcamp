@@ -1,30 +1,10 @@
 body {
     font-family: "Montserrat";
+    text-align: center;
 }
 
-#title {
-    background-color: #ff4c68;
-    color: #fff;
-}
-
-h1 {
+h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 3.5rem;
-    line-height: 1.5;
-    font-weight: 900;
-}
-
-h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2.5rem;
-    line-height: 1.5;
-    font-weight: 900;
-}
-
-h3 {
-    font-family: 'Montserrat', sans-serif;
-    /* font-size: 3.5rem;
-    line-height: 1.5; */
     font-weight: 900;
 }
 
@@ -32,8 +12,24 @@ p {
     color: #8f8f8f;
 }
 
+/* Headings */
+
+.big-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
+    line-height: 1.5;
+    font-weight: 900;
+}
+
+.section-heading {
+    font-size: 3.5rem;
+    line-height: 1.5;
+}
+
+/* Containers */
+
 .container-fluid {
-    padding: 3% 15% 7%;
+    padding: 7% 15%;
 }
 
 /*Navigation Bar*/
@@ -58,10 +54,16 @@ p {
     font-weight: 300;
 }
 
-/*Download buttons*/
+/* Title section */
 
-.download-button {
-    margin: 5% 3% 5% 0;
+#title {
+    background-color: #ff4c68;
+    color: #fff;
+    text-align: left;
+}
+
+#title .container-fluid {
+    padding: 3% 15% 7%;
 }
 
 /* Title image */
@@ -71,6 +73,12 @@ p {
     position: absolute;
     right: 30%;
     /* transform: rotate(25deg); now as a different class, so the image is straight in smaller devices and is only rotated in bigger ones*/
+}
+
+/*Download buttons*/
+
+.download-button {
+    margin: 5% 3% 5% 0;
 }
 
 .rotated {
@@ -84,23 +92,21 @@ p {
     position: relative;
 } */
 
-.white-section {
+/* .white-section {
     background-color: white;
-}
-
-.container-fluid {
-    padding: 7% 15%;
-}
+} */
 
 #features {
-    padding: 7% 15%;
     background-color: #fff;
     position: relative;
     /* z-index: 1; not needed because this is positioned after .title image in the html order, so it will prevail and be on top*/
 }
 
+.feature-title {
+    font-size: 1.5rem;
+}
+
 .feature-box {
-    text-align: center;
     padding: 5%;
 }
 
@@ -116,9 +122,12 @@ p {
 /*Testimonial section*/
 
 #testimonials {
-    
-    text-align: center;
     background-color: #ef8172;
+}
+
+.testimonial-text {
+    font-size: 3rem;
+    line-height: 1.5;
 }
 
 .testimonial-image {
@@ -131,15 +140,10 @@ p {
     color: #fff;
 }
 
-.carousel-item {
-    padding: 7% 15%;
-}
-
 /* Press section*/
 
 #press {
     background-color: #ef8172;
-    text-align: center;
     padding-bottom: 3%;
 }
 
@@ -152,7 +156,11 @@ p {
 
 #pricing {
     padding: 100px;
-    text-align: center;
+}
+
+.price-text {
+    font-size: 3rem;
+    line-height: 1.5;
 }
 
 .pricing-column {
@@ -164,24 +172,9 @@ p {
 #cta {
     background-color: #ff4c68;
     color: #fff;
-    padding: 7% 15%;
-    text-align: center;
-}
-
-.cta-heading {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 3.5rem;
-    line-height: 1.5;
-    font-weight: 900;
-
 }
 
 /* Footer section */
-
-#footer {
-    padding: 7% 15%;
-    text-align: center;
-}
 
 .social-icon {
     margin: 20px 10px;

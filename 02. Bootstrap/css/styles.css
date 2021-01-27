@@ -19,7 +19,6 @@ h2 {
     font-size: 2.5rem;
     line-height: 1.5;
     font-weight: 900;
-    color: #fff;
 }
 
 h3 {
@@ -79,11 +78,13 @@ p {
 
 /* .container-features {
     position: relative;
-}
+} */
+
 .white-section {
     background-color: white;
 }
-.container-fluid {
+
+/* .container-fluid {
     padding: 7% 15%;
 } */
 
@@ -134,4 +135,15 @@ p {
 .press-logo {
     width: 15%;
     margin: 20px 20px 50px;
+}
+
+/* Pricing section */
+
+#pricing {
+    padding: 100px;
+    text-align: center;
+}
+
+.pricing-column {
+    padding: 3% 2%;
 }

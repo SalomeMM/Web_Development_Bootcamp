@@ -3,6 +3,7 @@ Basic website made using HTML and CSS.
 Lessons 1-5
 
 Applied:
+- w3schools and MDN Documentations
 - Image Elements
 - Links and Anchor Tags
 - Inline, Internal and External CSS

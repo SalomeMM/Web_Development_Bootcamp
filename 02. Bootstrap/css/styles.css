@@ -1,3 +1,5 @@
+/* General */
+
 body {
     font-family: "Montserrat";
     text-align: center;
@@ -32,6 +34,17 @@ p {
     padding: 7% 15%;
 }
 
+/* Sections */
+
+.colored-section {
+    background-color: #ff4c68;
+    color: #fff;
+}
+
+.white-section {
+    background-color: #fff;
+}
+
 /*Navigation Bar*/
 
 .navbar {
@@ -56,14 +69,9 @@ p {
 
 /* Title section */
 
-#title {
-    background-color: #ff4c68;
-    color: #fff;
-    text-align: left;
-}
-
 #title .container-fluid {
     padding: 3% 15% 7%;
+    text-align: left;
 }
 
 /* Title image */
@@ -75,16 +83,16 @@ p {
     /* transform: rotate(25deg); now as a different class, so the image is straight in smaller devices and is only rotated in bigger ones*/
 }
 
+.rotated {
+    transform: rotate(25deg);
+}
+/* we use this separate "rotated" class instead of inside "title-image" because we only want it rotated in smaller devides and we need to be able to show the image straight in smaller devices */
+
 /*Download buttons*/
 
 .download-button {
     margin: 5% 3% 5% 0;
 }
-
-.rotated {
-    transform: rotate(25deg);
-}
-/* we use this separate class to be able to show the image staight in smaller devices */
 
 /*Features section*/
 
@@ -172,6 +180,10 @@ p {
     margin: 20px 10px;
 }
 
+.social-icon:hover {
+    color: #8f8f8f;
+}
+
 /* Media conditions, for different device sizes */
 
 /* @media <type> <feature> */
@@ -179,38 +191,10 @@ p {
 @media only screen and (max-width: 1028px) {
     #title {
       text-align: center;
-    }
-  
+    } 
   
     .title-image {
       position: static;
       transform: rotate(0deg);
     }
   }
-  
-  
-  
-  /* Small devices (portrait tablets and large phones, 600px and up) */
-  
-  /* @media only screen and (min-width: 600px) {
-    #title {
-      text-align: center;
-    }
-    .title-image {
-      position: static;
-      transform: rotate(0deg);
-    }
-  } */
-  
-  
-  /* Extra small devices (phones, 600px and down) */
-  
-  /* @media only screen and (max-width: 600px) {
-    #title {
-      text-align: center;
-    }
-    .title-image {
-      position: static;
-      transform: rotate(0deg);
-    }
-  } */

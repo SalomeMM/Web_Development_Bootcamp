@@ -1,4 +1,4 @@
-// Javascript Variables Exercise
+// 1. Javascript Variables Exercise
 //
 // Given the existing code below, can you write some code so that their values are switched around?
 // var a = "3";
@@ -28,3 +28,24 @@ b = c;
     console.log("a is " + a);
     console.log("b is " + b);
 // }
+
+
+// 2. String concatenation
+
+var message = "Hello";
+var name = "John";
+
+// Exercise: Create a greeting alert using the variables above
+
+alert(message + " there, " + name);
+
+
+// 3. String lengths and retrieving the number of characters
+
+// Create a prompt where the user can enter a long string such as a paragraph of text from a blog post and you will tell them how many characters they have written and also how many characters they have remaining out of either 140 or 280 characters.
+
+var tweet = prompt("Write here");
+var tweetCount = tweet.length;
+alert("You have written " + tweetCount + " characters. You have " + (140 - tweetCount) + " characters remaining");
+
+

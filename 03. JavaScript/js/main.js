@@ -71,7 +71,7 @@ var tweetToCut = prompt("Write here");
 var tweetUnder140 = tweetToCut.slice(0, 140);
 alert(tweetUnder140)
 
-// Lorem Ipsum example with 141 characters
+// Text example with 141 characters
 // Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, seddiam
 // When cut, it should end in "sed"
 

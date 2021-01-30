@@ -2,7 +2,7 @@ Basic website made using HTML and CSS.
 
 Lessons 1-5
 
-Applied:
+Content:
 - w3schools, MDN, devdocs.io Documentations
 - Debugging
 - Image Elements

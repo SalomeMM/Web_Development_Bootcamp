@@ -2,7 +2,7 @@ Basic website made using HTML, CSS and Bootstrap.
 
 Lessons 6-7
 
-Applied:
+Content:
 - Bootstrap Carousel
 - Bootstrap Cards
 - Z-index and stacking order

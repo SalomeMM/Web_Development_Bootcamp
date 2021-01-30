@@ -33,7 +33,7 @@ b = c;
 // 2. String concatenation
 
 var message = "Hello";
-var name = "John";
+var name = "Angela";
 
 // Exercise: Create a greeting alert using the variables above
 
@@ -49,3 +49,32 @@ var tweetCount = tweet.length;
 alert("You have written " + tweetCount + " characters. You have " + (140 - tweetCount) + " characters remaining");
 
 
+// Slicing
+
+var name2 = "Bernard";
+
+//output B
+name2.slice(0,1);
+console.log(name2.slice(0,1))
+
+//output d
+name2.slice(6,7);
+console.log(name2.slice(6,7))
+
+//output Ber
+name2.slice(0,3);
+console.log(name2.slice(0,3))
+
+// Create a prompt that, when I paste a text, cuts it to 140 characters
+
+var tweetToCut = prompt("Write here");
+var tweetUnder140 = tweetToCut.slice(0, 140);
+alert(tweetUnder140)
+
+// Lorem Ipsum example with 141 characters
+// Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, seddiam
+// When cut, it should end in "sed"
+
+// Shortened version:
+
+alert(prompt("Write here 2").slice(0,140));

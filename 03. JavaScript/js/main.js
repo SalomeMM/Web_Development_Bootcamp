@@ -160,6 +160,8 @@ getBeer(3)
 
 // Challenge: create a function to buy milk worth "x" amount of money.
 
+getMilk(5)
+
 function getMilk(money) {   
     console.log("leaveHouse");
     console.log("moveRight");
@@ -182,7 +184,29 @@ function getMilk(money) {
     console.log("moveLeft");
     console.log("enterHouse");
   }
-  getMilk(5)
+
+
+// Challenge:
+
+// Create a function that tells us how many days, weeks and months we have left if we live until 90 years old.
+// It will take your current age as the input and console.logs a message with our time left in this format:
+// "You have x days, y weeks, and z months left."
+// Where x, y and z are replaced with the actual calculated numbers.
+// For this challenge, assume there are 365 days in a year, 52 weeks in a year and 12 months in a year.
+// IMPORTANT your console.log output should match the Example Output format exactly, even the positions of the commas and full stops.
+
+function lifeInWeeks(age) {
+    var remainingYears = 90 - age;
+    var monthsLeft = remainingYears * 12;
+    var weeksLeft = remainingYears * 52;
+    var daysLeft = remainingYears * 365;
+    console.log("You have " + daysLeft + " days, " + weeksLeft + " weeks, and " + monthsLeft + " months left.")
+    }
+lifeInWeeks(89)
+
+
+// --- 
+
 
 
 

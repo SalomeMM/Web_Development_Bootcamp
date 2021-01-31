@@ -158,9 +158,26 @@ function getBeer (bottles) {
 }
 getBeer(3)
 
-// Challenge: create a function to buy milk worth "x" amount of money.
+// Challenge:
 
-getMilk(5)
+// Create a function that tells us how many days, weeks and months we have left if we live until 90 years old.
+// It will take your current age as the input and console.logs a message with our time left in this format:
+// "You have x days, y weeks, and z months left."
+// Where x, y and z are replaced with the actual calculated numbers.
+// For this challenge, assume there are 365 days in a year, 52 weeks in a year and 12 months in a year.
+// IMPORTANT your console.log output should match the Example Output format exactly, even the positions of the commas and full stops.
+
+function lifeInWeeks(age) {
+    var yearsLeft = 90 - age;
+    var monthsLeft = yearsLeft * 12;
+    var weeksLeft = yearsLeft * 52;
+    var daysLeft = yearsLeft * 365;
+    console.log("You have " + daysLeft + " days, " + weeksLeft + " weeks, and " + monthsLeft + " months left.")
+    }
+lifeInWeeks(12)
+
+
+// Challenge: create a function to buy milk worth "x" amount of money.
 
 function getMilk(money) {   
     console.log("leaveHouse");
@@ -172,7 +189,7 @@ function getMilk(money) {
     console.log("moveUp");
     console.log("moveRight");
     console.log("moveRight");
-    var numberOfBottles = Math.floor(money / 1.5);
+    var numberOfBottles = Math.floor(money / 1.5); // Round down
     console.log("buy " + numberOfBottles + " bottles of milk")
     console.log("moveLeft");
     console.log("moveLeft");
@@ -183,30 +200,74 @@ function getMilk(money) {
     console.log("moveLeft");
     console.log("moveLeft");
     console.log("enterHouse");
+    return money % 1.5; // Remainder of this division. The output of this function will be the change.
   }
 
+  var change = getMilk(5); // we can store the output of the getMilk function in a variable
+  console.log("your change is " + change); // and we can log it, we call the function directly here
 
-// Challenge:
+// Because of this, we can also build a function inside another function:
 
-// Create a function that tells us how many days, weeks and months we have left if we live until 90 years old.
-// It will take your current age as the input and console.logs a message with our time left in this format:
-// "You have x days, y weeks, and z months left."
-// Where x, y and z are replaced with the actual calculated numbers.
-// For this challenge, assume there are 365 days in a year, 52 weeks in a year and 12 months in a year.
-// IMPORTANT your console.log output should match the Example Output format exactly, even the positions of the commas and full stops.
+function calculateBottles (startingMoney, costPerBottle) {
+    var finalNumberOfBottles = Math.floor(startingMoney / costPerBottle);
+    return (finalNumberOfBottles);
+} // this calculates the number of bottles we can buy with x money
 
-function lifeInWeeks(age) {
-    var remainingYears = 90 - age;
-    var monthsLeft = remainingYears * 12;
-    var weeksLeft = remainingYears * 52;
-    var daysLeft = remainingYears * 365;
-    console.log("You have " + daysLeft + " days, " + weeksLeft + " weeks, and " + monthsLeft + " months left.")
-    }
-lifeInWeeks(89)
+function calculateChange (startingAmount, costPerBottle) {
+    var change = startingAmount % costPerBottle;
+    return change;
+} // this function calculates the change after buying milk for a price y/bottle with x
+
+function getMilk2(money, costPerBottle) {   
+    console.log("leaveHouse");
+    console.log("moveRight");
+    console.log("moveRight");
+    console.log("moveUp");
+    console.log("moveUp");
+    console.log("moveUp");
+    console.log("moveUp");
+    console.log("moveRight");
+    console.log("moveRight");
+    console.log("buy " + calculateBottles (money, costPerBottle) + " bottles of milk");
+    console.log("moveLeft");
+    console.log("moveLeft");
+    console.log("moveDown");
+    console.log("moveDown");
+    console.log("moveDown");
+    console.log("moveDown");
+    console.log("moveLeft");
+    console.log("moveLeft");
+    console.log("enterHouse");
+    return calculateChange(money, costPerBottle)
+  }
+
+  console.log("master, your change is " + getMilk2(10, 3));
 
 
-// --- 
+// Challenge: BMI Calculator:
 
+// Create a BMI calculator using JavaScript functions. 
+// The Body Mass Index (BMI) is a way of estimating the amount of body fat. It's used in medicine to calculate risk of heart disease.
+// You can calculate it using the formula below, where weight divided by height squared.
+// Your challenge is to create a function that takes weight and height as inputs and gives the calculated BMI value as an output. The output should be rounded to the nearest whole number.
+// The first parameter should be the weight and the second should be the height.
+// NOTE: You do not need to write any alerts or prompts or console logs. Your code should only contain the function, the result has to be returned by the function. You do not need to call the function.
+
+
+//Create your function below this line.
+//The first parameter should be the weight and the second should be the height.
+
+function bmiCalculator (weight, height) {
+    var bmiMath = Math.floor(weight / (height * height))
+    return bmiMath;
+}
+
+console.log (bmiCalculator(65, 1.8))
+
+/* If my weight is 65Kg and my height is 1.8m, I should be able to call your function like this:
+var bmi = bmiCalculator(65, 1.8); 
+bmi should equal 20 when it's rounded to the nearest whole number.
+*/
 
 
 

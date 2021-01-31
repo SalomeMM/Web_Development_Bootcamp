@@ -149,4 +149,33 @@ var inputDecrease = prompt("Type a number to find out the number before");
 console.log("The number before " + inputDecrease-- + " is " + inputDecrease)
 
 // --- Functions
+// Practice with Karel: http://stanford.edu/~cpiech/karel/ide.html
+// Lesson 118 - Functions 2: Parameters and Arguments
+
+function getBeer (bottles) {
+    var beerTotalCost = bottles * 1.5;
+    console.log(beerTotalCost);
+}
+getBeer(3)
+
+// function getMilk() {   
+//     console.log("leaveHouse");
+//     console.log("moveRight");
+//     console.log("moveRight");
+//     console.log("moveUp");
+//     console.log("moveUp");
+//     console.log("moveUp");
+//     console.log("moveUp");
+//     console.log("moveRight");
+//     console.log("moveRight");
+//     console.log("moveLeft");
+//     console.log("moveLeft");
+//     console.log("moveDown");
+//     console.log("moveDown");
+//     console.log("moveDown");
+//     console.log("moveDown");
+//     console.log("moveLeft");
+//     console.log("moveLeft");
+//     console.log("enterHouse");
+//   }
 

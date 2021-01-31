@@ -93,7 +93,7 @@ var name3 = prompt("What is your name?");
 // 4. Show it in the alert.
 
 firstChar = name3.slice(0,1);
-restChar = name3.slice(1,200);
+restChar = name3.slice(1,name3.length);
 
 UpperCaseFirstChar = firstChar.toUpperCase();
 lowerCaseRestChar = restChar.toLowerCase();
@@ -104,4 +104,4 @@ alert("Hello " + correctName + "! (longest version)");
 
 // Option 2: combine all steps into the alert:
 
-alert("Hello " + (name3.slice(0,1)).toUpperCase() + (name3.slice(1,200)).toLowerCase() + "! (shortest version)");
+alert("Hello " + (name3.slice(0,1)).toUpperCase() + (name3.slice(1,name3.length)).toLowerCase() + "! (shortest version)");

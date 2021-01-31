@@ -39,16 +39,16 @@ var name = "Angela";
 
 // Exercise: Create a greeting alert using the variables above
 
-alert(message + " there, " + name);
+console.log(message + " there, " + name);
 
 
 // --- String lengths and retrieving the number of characters
 
 // Create a prompt where the user can enter a long string such as a paragraph of text from a blog post and you will tell them how many characters they have written and also how many characters they have remaining out of either 140 or 280 characters.
 
-var tweet = prompt("Write here");
+var tweet = prompt("Write here and you will see the number of characters you have written and the remaining ones");
 var tweetCount = tweet.length;
-alert("You have written " + tweetCount + " characters. You have " + (140 - tweetCount) + " characters remaining");
+console.log("You have written " + tweetCount + " characters. You have " + (140 - tweetCount) + " characters remaining");
 
 
 // --- Slicing
@@ -69,9 +69,9 @@ console.log(name2.slice(0,3))
 
 // Create a prompt that, when I paste a text, cuts it to 140 characters
 
-var tweetToCut = prompt("Write here");
+var tweetToCut = prompt("Write here and your text will be cut down to 140 characters");
 var tweetUnder140 = tweetToCut.slice(0, 140);
-alert(tweetUnder140)
+console.log("This is your tweet cut down to 140 characters: " + tweetUnder140)
 
 // Text example with 141 characters
 // Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, seddiam
@@ -79,7 +79,7 @@ alert(tweetUnder140)
 
 // Shortened version:
 
-alert(prompt("Write here 2").slice(0,140));
+console.log("Tweet cut down to 140 characters, shortest version: " + prompt("Write here and your text will be cut down to 140 characters, shortened version").slice(0,140));
 
 
 // --- Changing casing (toUpperCase and toLowerCase)
@@ -87,7 +87,6 @@ alert(prompt("Write here 2").slice(0,140));
 // Create a prompt that asks for a name, then show the name with the first character in upper case and the rest in lower case:
 
 var name3 = prompt("What is your name?");
-
 
 // Option 1, longest:
 
@@ -107,14 +106,14 @@ var capitalizedName = UpperCaseFirstChar + lowerCaseRestChar
 
 // d. Show it in the alert.
 
-alert("Hello " + capitalizedName + "! (longest version)");
+console.log("Hello " + capitalizedName + "! (longest version)");
 
 
 // Option 2 (shortest):
 
 // a. Combine all steps into the alert:
 
-alert("Hello " + (name3.slice(0,1)).toUpperCase() + (name3.slice(1,name3.length)).toLowerCase() + "! (shortest version)");
+console.log("Hello " + (name3.slice(0,1)).toUpperCase() + (name3.slice(1,name3.length)).toLowerCase() + "! (shortest version)");
 
 
 // Option 3 (better for real life, in case we want to store the capitalized name to use somewhere else)
@@ -125,7 +124,7 @@ var capitalizedName2 = (name3.slice(0,1)).toUpperCase() + (name3.slice(1,name3.l
 
 // b. Show it in the alert.
 
-alert("Hello " + capitalizedName2 + "! (best version)");
+console.log("Hello " + capitalizedName2 + "! (best version)");
 
 
 // --- Modulo operator = remainder of the division#
@@ -135,7 +134,7 @@ alert("Hello " + capitalizedName2 + "! (best version)");
 var dogAge = prompt("How old is your dog?");
 var humanAge = ((dogAge - 2) * 4) + 21;
 
-alert("Your dog is " + humanAge + " human years old");
+console.log("Your dog is " + humanAge + " human years old");
 
 
 // --- Increment and decrement expressions
@@ -143,8 +142,11 @@ alert("Your dog is " + humanAge + " human years old");
 
 var inputIncrease = prompt("Type a number to find out the number after");
 
-alert("The number after " + inputIncrease++ + " is " + inputIncrease);
+console.log("The number after " + inputIncrease++ + " is " + inputIncrease);
 
 var inputDecrease = prompt("Type a number to find out the number before");
 
-alert("The number before " + inputDecrease-- + " is " + inputDecrease)
+console.log("The number before " + inputDecrease-- + " is " + inputDecrease)
+
+// --- Functions
+

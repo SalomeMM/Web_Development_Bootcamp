@@ -78,3 +78,30 @@ alert(tweetUnder140)
 // Shortened version:
 
 alert(prompt("Write here 2").slice(0,140));
+
+
+/// Changing casing (toUpperCase and toLowerCase)
+
+// Create a prompt that asks for a name, then show the name with the first character in upper case and the rest in lower case:
+
+var name3 = prompt("What is your name?");
+
+// Option 1, longest:
+// 1. Split name3 into firstChar and restChar.
+// 2. Create new variables for capitalized firstChar and restChar.
+// 3. Join them into a new variable forming the new in the required format. 
+// 4. Show it in the alert.
+
+firstChar = name3.slice(0,1);
+restChar = name3.slice(1,200);
+
+UpperCaseFirstChar = firstChar.toUpperCase();
+lowerCaseRestChar = restChar.toLowerCase();
+
+correctName = UpperCaseFirstChar + lowerCaseRestChar
+
+alert("Hello " + correctName + "! (longest version)");
+
+// Option 2: combine all steps into the alert:
+
+alert("Hello " + (name3.slice(0,1)).toUpperCase() + (name3.slice(1,200)).toLowerCase() + "! (shortest version)");

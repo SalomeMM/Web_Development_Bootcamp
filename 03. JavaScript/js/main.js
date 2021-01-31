@@ -137,3 +137,14 @@ var humanAge = ((dogAge - 2) * 4) + 21;
 
 alert("Your dog is " + humanAge + " human years old");
 
+
+// --- Increment and decrement expressions
+// Playground
+
+var inputIncrease = prompt("Type a number to find out the number after");
+
+alert("The number after " + inputIncrease++ + " is " + inputIncrease);
+
+var inputDecrease = prompt("Type a number to find out the number before");
+
+alert("The number before " + inputDecrease-- + " is " + inputDecrease)

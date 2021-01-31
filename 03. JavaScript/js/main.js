@@ -1,4 +1,7 @@
-// 1. Javascript Variables Exercise
+// Problems will be indicated with "---" and the title of the problem
+
+
+// --- Javascript Variables Exercise
 //
 // Given the existing code below, can you write some code so that their values are switched around?
 // var a = "3";
@@ -30,7 +33,7 @@ b = c;
 // }
 
 
-// 2. String concatenation
+// --- String concatenation
 
 var message = "Hello";
 var name = "Angela";
@@ -40,7 +43,7 @@ var name = "Angela";
 alert(message + " there, " + name);
 
 
-// 3. String lengths and retrieving the number of characters
+// --- String lengths and retrieving the number of characters
 
 // Create a prompt where the user can enter a long string such as a paragraph of text from a blog post and you will tell them how many characters they have written and also how many characters they have remaining out of either 140 or 280 characters.
 
@@ -49,7 +52,7 @@ var tweetCount = tweet.length;
 alert("You have written " + tweetCount + " characters. You have " + (140 - tweetCount) + " characters remaining");
 
 
-// Slicing
+// --- Slicing
 
 var name2 = "Bernard";
 
@@ -80,28 +83,47 @@ alert(tweetUnder140)
 alert(prompt("Write here 2").slice(0,140));
 
 
-/// Changing casing (toUpperCase and toLowerCase)
+// --- Changing casing (toUpperCase and toLowerCase)
 
 // Create a prompt that asks for a name, then show the name with the first character in upper case and the rest in lower case:
 
 var name3 = prompt("What is your name?");
 
+
 // Option 1, longest:
-// 1. Split name3 into firstChar and restChar.
-// 2. Create new variables for capitalized firstChar and restChar.
-// 3. Join them into a new variable forming the new in the required format. 
-// 4. Show it in the alert.
+
+// a. Split name3 into firstChar and restChar.
 
 firstChar = name3.slice(0,1);
 restChar = name3.slice(1,name3.length);
 
+// b. Create new variables for capitalized firstChar and restChar.
+
 UpperCaseFirstChar = firstChar.toUpperCase();
 lowerCaseRestChar = restChar.toLowerCase();
 
-correctName = UpperCaseFirstChar + lowerCaseRestChar
+// c. Join them into a new variable forming the new in the required format. 
 
-alert("Hello " + correctName + "! (longest version)");
+capitalizedName = UpperCaseFirstChar + lowerCaseRestChar
 
-// Option 2: combine all steps into the alert:
+// d. Show it in the alert.
+
+alert("Hello " + capitalizedName + "! (longest version)");
+
+
+// Option 2 (shortest):
+
+// a. Combine all steps into the alert:
 
 alert("Hello " + (name3.slice(0,1)).toUpperCase() + (name3.slice(1,name3.length)).toLowerCase() + "! (shortest version)");
+
+
+// Option 3 (better for real life, in case we want to store the capitalized name to use somewhere else)
+
+// a. Combine all steps forming the capitalized name.
+
+capitalizedName = (name3.slice(0,1)).toUpperCase() + (name3.slice(1,name3.length)).toLowerCase();
+
+// b. Show it in the alert.
+
+alert("Hello " + capitalizedName + "! (best version)");

@@ -1,5 +1,4 @@
-// Problems will be indicated with "---" and the title of the problem
-
+// Each section will be indicated with "---" and the title of the section
 
 // --- Javascript Variables Exercise
 //
@@ -127,3 +126,14 @@ var capitalizedName2 = (name3.slice(0,1)).toUpperCase() + (name3.slice(1,name3.l
 // b. Show it in the alert.
 
 alert("Hello " + capitalizedName2 + "! (best version)");
+
+
+// --- Modulo operator = remainder of the division#
+
+// create dog years - human years converter/calculator
+
+var dogAge = prompt("How old is your dog?");
+var humanAge = ((dogAge - 2) * 4) + 21;
+
+alert("Your dog is " + humanAge + " human years old");
+

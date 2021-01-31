@@ -94,17 +94,17 @@ var name3 = prompt("What is your name?");
 
 // a. Split name3 into firstChar and restChar.
 
-firstChar = name3.slice(0,1);
-restChar = name3.slice(1,name3.length);
+var firstChar = name3.slice(0,1);
+var restChar = name3.slice(1,name3.length);
 
 // b. Create new variables for capitalized firstChar and restChar.
 
-UpperCaseFirstChar = firstChar.toUpperCase();
-lowerCaseRestChar = restChar.toLowerCase();
+var UpperCaseFirstChar = firstChar.toUpperCase();
+var lowerCaseRestChar = restChar.toLowerCase();
 
 // c. Join them into a new variable forming the new in the required format. 
 
-capitalizedName = UpperCaseFirstChar + lowerCaseRestChar
+var capitalizedName = UpperCaseFirstChar + lowerCaseRestChar
 
 // d. Show it in the alert.
 
@@ -122,8 +122,8 @@ alert("Hello " + (name3.slice(0,1)).toUpperCase() + (name3.slice(1,name3.length)
 
 // a. Combine all steps forming the capitalized name.
 
-capitalizedName = (name3.slice(0,1)).toUpperCase() + (name3.slice(1,name3.length)).toLowerCase();
+var capitalizedName2 = (name3.slice(0,1)).toUpperCase() + (name3.slice(1,name3.length)).toLowerCase();
 
 // b. Show it in the alert.
 
-alert("Hello " + capitalizedName + "! (best version)");
+alert("Hello " + capitalizedName2 + "! (best version)");

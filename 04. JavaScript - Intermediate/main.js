@@ -24,18 +24,18 @@ if (loveScore > 70) {
 
 if (loveScore > 30 && loveScore <= 70) {
     alert("Your love score is " + loveScore + "%.")
-    }
+}
 
 if (loveScore <= 30) {
     alert("Your love score is " + loveScore + "%." + " You get together like oil and water")
-    }
+}
 
 
 // --- Challenge: advanced BMI calculator.
 // Write a function that outputs (returns) a different message depending on the BMI.
 // The message MUST be returned as an output from your function. You should NOT NEED to use alert, prompt or console.log in this challenge.
 
-function bmiCalculator (weight, height) {
+function bmiCalculator(weight, height) {
     var bmi = weight / Math.pow(height, 2);
     var interpretation = "";
     if (bmi < 18.5) {
@@ -50,4 +50,32 @@ function bmiCalculator (weight, height) {
     return interpretation;
 }
 
-bmiCalculator (64, 1.75)
+bmiCalculator(64, 1.75)
+
+
+// --- Challenge: Leap year calculator challenge
+// Write a program that works out whether if a given year is a leap year. A normal year has 365 days, leap years have 366, with an extra day in February. The reason why we have leap years is really fascinating, this video goes into more detail.
+// This is how to work out whether if a particular year is a leap year:
+// A year is a leap year if it is evenly divisible by 4;
+// except if that year is also evenly divisible by 100;
+// unless that year is also evenly divisible by 400.
+
+isLeap(2000)
+
+function isLeap(year) {
+
+    /**************Don't change the code above****************/
+    var yearResult = "";
+    if (year % 4 !== 0) {
+        yearResult = "Not leap year."; // if a year is not divisible by 4 then it is not a leap year
+    } else if (year % 100 !== 0) {
+        yearResult = "Leap year."; // else if a year is not divisible by 100 then it is a leap year
+    } else if (year % 400 !== 0) {
+        yearResult = "Not leap year."; // else if a year is not divisible by 400 then it is not a leap year
+    } else {
+        yearResult = "Leap year."; // else it is a leap year
+    }
+
+    return yearResult;
+
+}

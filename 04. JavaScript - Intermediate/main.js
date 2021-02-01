@@ -81,7 +81,7 @@ function isLeap(year) {
 }
 
 
-/// --- Arrays
+// --- Arrays
 
 var guestList = ["Angela", "Jack", "Pam", "James", "Lara", "Jason"];
 
@@ -91,4 +91,29 @@ if (guestList.includes(guestName)) { // will retrieve true or false, boolean
     alert("Welcome to my party!");
 } else {
     alert("Sorry, maybe next time.");
+}
+
+
+// --- FizzBuzz
+
+var output = [];
+output.push(1); // pushes 1 to the end of the array
+output.pop; // removes the last item in the array
+
+// Instead of adding numbers manually, let's create a function
+var count = 1
+
+function fizzBuzz() {
+
+    if (count % 3 === 0 && count % 5 === 0) {
+        output.push("FizzBuzz");
+    } else if (count % 3 === 0) {
+        output.push("Fizz");
+    } else if (count % 5 === 0) {
+        output.push("Buzz");
+    } else {
+        output.push(count);
+    }
+    count++;
+    console.log(output);
 }

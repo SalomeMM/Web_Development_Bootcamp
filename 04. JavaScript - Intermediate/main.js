@@ -79,3 +79,16 @@ function isLeap(year) {
     return yearResult;
 
 }
+
+
+/// --- Arrays
+
+var guestList = ["Angela", "Jack", "Pam", "James", "Lara", "Jason"];
+
+var guestName = prompt("What is your name?");
+
+if (guestList.includes(guestName)) { // will retrieve true or false, boolean
+    alert("Welcome to my party!");
+} else {
+    alert("Sorry, maybe next time.");
+}

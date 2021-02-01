@@ -123,6 +123,26 @@ function fizzBuzz() {
     console.log(output);
 }
 
+// Now let's do the same with a for loop
+
+function fizzBuzz() {
+
+    for(var count = 1; count < 101; count++) {
+
+        if (count % 3 === 0 && count % 5 === 0) {
+            output.push("FizzBuzz");
+        } else if (count % 3 === 0) {
+            output.push("Fizz");
+        } else if (count % 5 === 0) {
+            output.push("Buzz");
+        } else {
+            output.push(count);
+        }
+    }
+
+    console.log(output);
+}
+
 
 // --- Challenge: Who's buying lunch
 
@@ -144,7 +164,7 @@ function whosPaying(names) {
 }
 
 
-// --- Challenge: 99 bottles of beer
+// --- Challenge: 99 bottles of beer - while loop
 
 // Printing the lyrics to the 99 bottles of beer song
 
@@ -155,21 +175,45 @@ while (numberOfBottles >= 0) {
         bottleWord = "bottle";
     }
     if (numberOfBottles > 0) {
-    console.log(numberOfBottles + " " + bottleWord + " of beer on the wall");
-    console.log(numberOfBottles + " " + bottleWord + " of beer,");
-    console.log("Take one down, pass it around,");
-    console.log(numberOfBottles + " " + bottleWord + " of beer on the wall.");
-}
- if (numberOfBottles === 0) {
-    console.log("No more bottles of beer on the wall");
-    console.log("No more bottles of beer");
-    console.log("We can't keep passing it around");
-    console.log("No more bottles of beer on the wall");
- }
- else {
-     console.log()
- }
+        console.log(numberOfBottles + " " + bottleWord + " of beer on the wall");
+        console.log(numberOfBottles + " " + bottleWord + " of beer,");
+        console.log("Take one down, pass it around,");
+        console.log(numberOfBottles + " " + bottleWord + " of beer on the wall.");
+    }
+    if (numberOfBottles === 0) { // improved original challenge to show specific lyrics for 0 bottles
+        console.log("No more bottles of beer on the wall");
+        console.log("No more bottles of beer");
+        console.log("We've taken them down and passed them around");
+        console.log("now we're drunk and passed out!");
+    }
+
     numberOfBottles--;
 
 }
-// improvement: when numberOfBottles is equal to 0, you can make the output "No more bottles of beer on the wall" instead of 0 bottles of beer on the wall".
+
+
+// // --- Challenge: 99 bottles of beer - for loop instead of while loop
+
+// for (var numberOfBottles = 99; numberOfBottles >= 0; numberOfBottles++) {
+
+//     if (numberOfBottles === 1) {
+//         var bottleWord = "bottle";
+//     }
+//     if (numberOfBottles > 0) {
+//         console.log(numberOfBottles + " " + bottleWord + " of beer on the wall");
+//         console.log(numberOfBottles + " " + bottleWord + " of beer,");
+//         console.log("Take one down, pass it around,");
+//         console.log(numberOfBottles + " " + bottleWord + " of beer on the wall.");
+//     }
+//     if (numberOfBottles === 0) { // improved original challenge to show specific lyrics for 0 bottles
+//         console.log("No more bottles of beer on the wall");
+//         console.log("No more bottles of beer");
+//         console.log("We've taken them down and passed them around");
+//         console.log("now we're drunk and passed out!");
+//     }
+// }
+
+
+// --- Challenge: Fibonacci code
+
+

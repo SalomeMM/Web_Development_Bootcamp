@@ -14,4 +14,18 @@ prompt("What is your crush's name?");
 
 var loveScore = Math.random() * 100; // will show whole 2-digit numbers
 loveScore = Math.floor(loveScore); // will show 0-99
-alert("Your love score is " + loveScore + "%");
+// alert("Your love score is " + loveScore + "%");
+
+// Add customized message depending on the love score obtained
+
+if (loveScore > 70) {
+    alert("Your love score is " + loveScore + "%." + " You love each other like Kanye loves Kanye")
+}
+
+if (loveScore > 30 && loveScore <= 70) {
+    alert("Your love score is " + loveScore + "%.")
+    }
+
+if (loveScore <= 30) {
+    alert("Your love score is " + loveScore + "%." + " You get together like oil and water")
+    }

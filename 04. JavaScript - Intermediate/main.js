@@ -105,16 +105,21 @@ var count = 1
 
 function fizzBuzz() {
 
-    if (count % 3 === 0 && count % 5 === 0) {
-        output.push("FizzBuzz");
-    } else if (count % 3 === 0) {
-        output.push("Fizz");
-    } else if (count % 5 === 0) {
-        output.push("Buzz");
-    } else {
-        output.push(count);
+    while (count <= 100) { // added a while loop so we don't have to call the function all the time
+
+        if (count % 3 === 0 && count % 5 === 0) {
+            output.push("FizzBuzz");
+        } else if (count % 3 === 0) {
+            output.push("Fizz");
+        } else if (count % 5 === 0) {
+            output.push("Buzz");
+        } else {
+            output.push(count);
+        }
+        count++;
+
     }
-    count++;
+
     console.log(output);
 }
 
@@ -137,3 +142,34 @@ function whosPaying(names) {
 
     return randomPerson + " is going to buy lunch today!";
 }
+
+
+// --- Challenge: 99 bottles of beer
+
+// Printing the lyrics to the 99 bottles of beer song
+
+var numberOfBottles = 99
+while (numberOfBottles >= 0) {
+    var bottleWord = "bottles";
+    if (numberOfBottles === 1) {
+        bottleWord = "bottle";
+    }
+    if (numberOfBottles > 0) {
+    console.log(numberOfBottles + " " + bottleWord + " of beer on the wall");
+    console.log(numberOfBottles + " " + bottleWord + " of beer,");
+    console.log("Take one down, pass it around,");
+    console.log(numberOfBottles + " " + bottleWord + " of beer on the wall.");
+}
+ if (numberOfBottles === 0) {
+    console.log("No more bottles of beer on the wall");
+    console.log("No more bottles of beer");
+    console.log("We can't keep passing it around");
+    console.log("No more bottles of beer on the wall");
+ }
+ else {
+     console.log()
+ }
+    numberOfBottles--;
+
+}
+// improvement: when numberOfBottles is equal to 0, you can make the output "No more bottles of beer on the wall" instead of 0 bottles of beer on the wall".

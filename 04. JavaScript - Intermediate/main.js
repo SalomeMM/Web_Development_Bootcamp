@@ -117,3 +117,23 @@ function fizzBuzz() {
     count++;
     console.log(output);
 }
+
+
+// --- Challenge: Who's buying lunch
+
+// Write a function which will select a random name from a list of names. 
+// The person selected will have to pay for everybody's food bill.
+// Important: The output should e returned from the function and you do not need alert, prompt or console.log.
+// The output should match the example output exactly, including capitalisation and punctuation.
+
+// Example input: 
+// ["Angela", "Ben", "Jenny", "Michael", "Chloe"]
+
+function whosPaying(names) {
+
+    var numberOfPeople = names.length;
+    var randomPersonPosition = Math.floor(Math.random() * numberOfPeople); // array length example being 5, randon number, multiplied by nr of people will give 0-4,99999. math floor rounds down to 0-4, 5 array positions.
+    var randomPerson = names[randomPersonPosition];
+
+    return randomPerson + " is going to buy lunch today!";
+}

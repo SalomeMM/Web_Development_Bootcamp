@@ -1,6 +1,6 @@
 JavaScript exercises
 
-Lessons 8-9
+Sections 8-9
 
 Content:
 - Alerts

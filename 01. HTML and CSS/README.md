@@ -1,6 +1,6 @@
 Basic website made using HTML and CSS.
 
-Lessons 1-5
+Sections 1-5
 
 Content:
 - w3schools, MDN, devdocs.io Documentations

@@ -186,32 +186,32 @@ while (numberOfBottles >= 0) {
         console.log("We've taken them down and passed them around");
         console.log("now we're drunk and passed out!");
     }
-
     numberOfBottles--;
-
 }
 
 
-// // --- Challenge: 99 bottles of beer - for loop instead of while loop
+// // --- Challenge (personal): 99 bottles of beer - for loop instead of while loop
 
-// for (var numberOfBottles = 99; numberOfBottles >= 0; numberOfBottles++) {
 
-//     if (numberOfBottles === 1) {
-//         var bottleWord = "bottle";
-//     }
-//     if (numberOfBottles > 0) {
-//         console.log(numberOfBottles + " " + bottleWord + " of beer on the wall");
-//         console.log(numberOfBottles + " " + bottleWord + " of beer,");
-//         console.log("Take one down, pass it around,");
-//         console.log(numberOfBottles + " " + bottleWord + " of beer on the wall.");
-//     }
-//     if (numberOfBottles === 0) { // improved original challenge to show specific lyrics for 0 bottles
-//         console.log("No more bottles of beer on the wall");
-//         console.log("No more bottles of beer");
-//         console.log("We've taken them down and passed them around");
-//         console.log("now we're drunk and passed out!");
-//     }
-// }
+
+for (var numberOfBottles = 99; numberOfBottles >= 0; numberOfBottles--) {
+    var bottleWord = "bottles";
+    if (numberOfBottles === 1) {
+        bottleWord = "bottle";
+    }
+    if (numberOfBottles > 0) {
+        console.log(numberOfBottles + " " + bottleWord + " of beer on the wall");
+        console.log(numberOfBottles + " " + bottleWord + " of beer,");
+        console.log("Take one down, pass it around,");
+        console.log(numberOfBottles + " " + bottleWord + " of beer on the wall.");
+    }
+    if (numberOfBottles === 0) { // improved original challenge to show specific lyrics for 0 bottles
+        console.log("No more bottles of beer on the wall");
+        console.log("No more bottles of beer");
+        console.log("We've taken them down and passed them around");
+        console.log("now we're drunk and passed out!");
+    }
+}
 
 
 // --- Challenge: Fibonacci code
@@ -250,3 +250,4 @@ function fibonacciGenerator(n) {
 
 output = fibonacciGenerator(16);
 console.log(output);
+

@@ -174,7 +174,7 @@ while (numberOfBottles >= 0) {
     if (numberOfBottles === 1) {
         bottleWord = "bottle";
     }
-    if (numberOfBottles > 0) {
+    if (numberOfBottles >= 1) {
         console.log(numberOfBottles + " " + bottleWord + " of beer on the wall");
         console.log(numberOfBottles + " " + bottleWord + " of beer,");
         console.log("Take one down, pass it around,");
@@ -199,7 +199,7 @@ for (var numberOfBottles = 99; numberOfBottles >= 0; numberOfBottles--) {
     if (numberOfBottles === 1) {
         bottleWord = "bottle";
     }
-    if (numberOfBottles > 0) {
+    if (numberOfBottles >= 1) {
         console.log(numberOfBottles + " " + bottleWord + " of beer on the wall");
         console.log(numberOfBottles + " " + bottleWord + " of beer,");
         console.log("Take one down, pass it around,");

@@ -1,9 +1,33 @@
-DOM
+"The Complete Web Development Bootcamp"
 
-Section 11
+Instructor: Angela Yu
+Platform: Udemy 
+Course: https://www.udemy.com/course/the-complete-web-development-bootcamp/learn/lecture/12374106)
 
 Content:
-- Adding Javascript to websites
-- DOM
-- HTML elements with Javascript (select, manipulate, change)
-- Structure vs style vs behaviour
+- Front-End Web Development
+- HTML 5
+- CSS 3
+- Bootstrap 4
+- Javascript ES6
+- DOM Manipulation
+- jQuery
+- Bash Command Line
+- Git, GitHub and Version Control
+- Backend Web Development
+- Node.js
+- NPM
+- Express.js
+- EJS
+- REST
+- APIs
+- Databases
+- SQL
+- MongoDB
+- Mongoose
+- Authentication
+- Firebase
+- React.js
+- React Hooks
+- Web Design
+- Deployment with GitHub Pages, Heroku and MongoDB Atlas

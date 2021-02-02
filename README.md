@@ -1,8 +1,8 @@
-"The Complete Web Development Bootcamp"
+"The Complete Web Development Bootcamp"  
 
-Instructor: Angela Yu
-Platform: Udemy 
-Course: https://www.udemy.com/course/the-complete-web-development-bootcamp/learn/lecture/12374106)
+Instructor: Angela Yu  
+Platform: Udemy  
+Course: https://www.udemy.com/course/the-complete-web-development-bootcamp/learn/lecture/12374106)  
 
 Content:
 - Front-End Web Development

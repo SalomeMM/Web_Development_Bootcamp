@@ -127,7 +127,7 @@ function fizzBuzz() {
 
 function fizzBuzz() {
 
-    for(var count = 1; count < 101; count++) {
+    for (var count = 1; count < 101; count++) {
 
         if (count % 3 === 0 && count % 5 === 0) {
             output.push("FizzBuzz");
@@ -217,3 +217,36 @@ while (numberOfBottles >= 0) {
 // --- Challenge: Fibonacci code
 
 
+// Create a function where you can call it by writing the code "fibonacciGenerator (n)", where n is the number of items in the sequence.
+// So I should be able to call: "fibonacciGenerator(3)" and get [0,1,1] as the output.
+
+// IMPORTANT: The solution checker is expecting an array as the correct output.
+// Do NOT change any of the existing code.
+// You do NOT need any alerts or prompts, the result should be returned from the function as an output.
+// The first two numbers in the sequence must be 0 and 1.
+// Also, if you decide to create a for loop, make sure you explicitly specify var i = 0 rather than simply writing i = 0 . This is a quirk of the testing suite. e.g. for (var i = 0; i < 10; i ++)
+
+// Logic flow chart: https://drive.google.com/file/d/1g8vVtqhSj44vcElfc-HK0nMbecteW8Yg/view
+
+//Playground: https://repl.it/@appbrewery/Fibonacci-Coding-Exercise
+
+
+
+function fibonacciGenerator(n) {
+    var output = [];
+    if (n === 1) {
+        output = [0];
+    } else if (n === 2) {
+        output = [0, 1];
+    } else {
+        output = [0, 1];
+
+        for (var i = 2; i < n; i++) {
+            output.push(output[output.length - 2] + output[output.length - 1]);
+        }
+    }
+    return output;
+}
+
+output = fibonacciGenerator(16);
+console.log(output);

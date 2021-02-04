@@ -71,6 +71,9 @@ function HouseKeeper(yearsOfExperience, name, cleaningRepertoire) {
     this.yearsOfExperience = yearsOfExperience; // this function is going to have a "yearsOfExperience" property (1) that is going to be equal to the input up there in "yearsOfExperience"
     this.name = name;
     this.cleaningRepertoire = cleaningRepertoire;
+    this.clean = function() {
+        alert("Cleaning in progress...");
+    }
 }
 
 // now that we have our constructor function, we create new objects:
@@ -79,6 +82,10 @@ console.log(houseKeeper1);
 
 var houseKeeper2 = new HouseKeeper(14, "Janet", ["lobby", "toilets"]);
 console.log(houseKeeper2);
+
+var houseKeeper3 = new HouseKeeper(9, "Kate", ["bedroom", "toilet", "lobby"], "cleanNow")
+
+houseKeeper3.clean();
 
 
 // --- Challenge: add event listeners to all buttons, not only the first
@@ -100,6 +107,7 @@ console.log(houseKeeper2);
 // Adding Switch Statements:
 
 // Takes the code down a different track depending on the value of a variable.
+// We are going to switch on the letter that is inside the innerHTML of each of our buttons.
 
 var numberOfDrumButtons = document.querySelectorAll(".drum").length;
 
@@ -108,9 +116,9 @@ for (var i = 0; i < numberOfDrumButtons; i++) {
     document.querySelectorAll(".drum")[i].addEventListener("click", function () {
         // console.log(this.innerHTML);
 
-        var buttonInnerHTML = this.innerHTML;
+        var buttonInnerHTML = this.innerHTML; // this new variable holds the value on which the switch will depend and equals "this" which is the button that triggered the event.
 
-        switch (buttonInnerHTML) {
+        switch (buttonInnerHTML) { // now depending on each case we will tell it to do something different
             case "w":
                 var tom1 = new Audio("sounds/tom-1.mp3"); // create a variable that stores this new object by writing "new Audio" and the URL or location of that audio. This will construct an audio HTML element with several properties and methods.
                 tom1.play(); // play is one of those methods  

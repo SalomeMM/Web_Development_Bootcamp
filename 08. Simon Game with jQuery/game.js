@@ -26,8 +26,6 @@ $(".btn").click(function () { // will detect when any of the buttons are clicked
 
     userClickedPattern.push(userChosenColour);
 
-    // var audio = new Audio("sounds/" + userChosenColour + ".mp3"); // play a sound for the clicked colour
-    // audio.play();
     playSound(userChosenColour);
 
     animatePress(userChosenColour); // will add .pressed class to the chosen colour
@@ -44,7 +42,9 @@ function checkAnswer(currentLevel) {
     if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) { // check if the most recent user answer is the same as the game pattern. If so then log "success", otherwise log "wrong".
 
         console.log("success");
-        
+        //     var soundRight = new Audio("sounds/" + userChosenColour + ".mp3");
+        // soundRight.play();
+
         if (userClickedPattern.length === gamePattern.length) { // if the user got the most recent answer right in step 3, then check that they have finished their sequence with another if statement.
 
             setTimeout(function () { // call nextSequence() after a 1000 millisecond delay.
@@ -57,16 +57,29 @@ function checkAnswer(currentLevel) {
 
         console.log("wrong");
 
+        playSound("wrong");
+
+        $("body").addClass("game-over"); // gives the body the class "game-over"
+        setTimeout(function () {
+            $("body").removeClass("game-over"); // will removed the given class after 200 miliseconds = 0.2 seconds
+        }, 200);
+
+        // $("h1").text("Game Over, Press Any Key to Restart");
+        $("#level-title").text("Game Over, Press Any Key to Restart");
+
+        startOver();
+
     }
 
 }
 
-
-
-
-
-
 function nextSequence() { // will generate the next colour
+
+    userClickedPattern = []; // once nextSequence() is triggered, reset the userClickedPattern to an empty array ready for the next level.
+
+    level++; // inside nextSequence(), increase the level by 1 every time nextSequence() is called.
+
+    $("#level-title").text("Level " + level); // inside nextSequence(), update the h1 with this change in the value of level.
 
     var randomNumber = Math.floor(Math.random() * 4); // create a random number 0-3
 
@@ -78,8 +91,6 @@ function nextSequence() { // will generate the next colour
 
     $("#" + randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100); // add animation for the selected colour
 
-    // var audio = new Audio("sounds/" + randomChosenColour + ".mp3"); // play a sound for the selected colour
-    // audio.play();
     playSound(randomChosenColour);
 
 }
@@ -96,3 +107,5 @@ function animatePress(currentColour) { // will animate the pressed colour
         $("#" + currentColour).removeClass("pressed"); // will removed the given class after 100 miliseconds = 0.1 seconds
     }, 100);
 }
+
+

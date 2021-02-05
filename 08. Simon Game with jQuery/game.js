@@ -108,4 +108,9 @@ function animatePress(currentColour) { // will animate the pressed colour
     }, 100);
 }
 
+function startOver() { // reset the values of level, gamePattern and started variables. Will be called at the "wrong" if statement.
 
+    level = 0;
+    gamePattern = [];
+    started = false;
+}

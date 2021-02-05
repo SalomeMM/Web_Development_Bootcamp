@@ -9,11 +9,14 @@ $(".btn").click(function() { // will detect when any of the buttons are clicked 
     var userChosenColour = $(this).attr("id"); // userChosenColour will store the id of the button that got clicked (this)
   
     userClickedPattern.push(userChosenColour);
+
+    // var audio = new Audio("sounds/" + userChosenColour + ".mp3"); // play a sound for the clicked colour
+    // audio.play();
+    playSound(userChosenColour);
   
     console.log("userClickedPatter: " + userClickedPattern);
   
   });
-
 
 function nextSequence() {
 
@@ -29,7 +32,15 @@ function nextSequence() {
 
     // var audio = new Audio("sounds/" + randomChosenColour + ".mp3"); // play a sound for the selected colour
     // audio.play();
+    playSound(randomChosenColour);
 
 }
 
 nextSequence();
+
+
+function playSound(name) { // creates a sound for a specific colour. We will call it when a random colour is selected and when a user clicks on a chosen button.
+    var audio = new Audio("sounds/" + name + ".mp3"); // play a sound for the clicked colour
+    audio.play();
+  };
+  

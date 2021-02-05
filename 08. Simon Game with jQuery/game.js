@@ -4,6 +4,7 @@ var gamePattern = []; // empty array to which we will push the new generated col
 
 var userClickedPattern = []; // will store the userChosenColour every time
 
+
 $(".btn").click(function() { // will detect when any of the buttons are clicked and trigger a handler function
 
     var userChosenColour = $(this).attr("id"); // userChosenColour will store the id of the button that got clicked (this)
@@ -13,12 +14,14 @@ $(".btn").click(function() { // will detect when any of the buttons are clicked 
     // var audio = new Audio("sounds/" + userChosenColour + ".mp3"); // play a sound for the clicked colour
     // audio.play();
     playSound(userChosenColour);
+
+    animatePress(userChosenColour); // will add .pressed class to the chosen colour
   
     console.log("userClickedPatter: " + userClickedPattern);
   
   });
 
-function nextSequence() {
+function nextSequence() { // will generate the next colour
 
     var randomNumber = Math.floor(Math.random()*4); // create a random number 0-3
 
@@ -44,3 +47,10 @@ function playSound(name) { // creates a sound for a specific colour. We will cal
     audio.play();
   };
   
+
+function animatePress(currentColour) { // will animate the pressed colour
+    $("#" + currentColour).addClass("pressed"); // gives the pressed colour a new class: ".pressed"
+    setTimeout(function () {
+        $("#" + currentColour).removeClass("pressed"); // will removed the given class after 100 miliseconds = 0.1 seconds
+      }, 100);
+}

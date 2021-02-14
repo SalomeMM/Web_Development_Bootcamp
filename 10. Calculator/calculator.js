@@ -5,7 +5,7 @@ const express = require("express");
 const app = express();
 
 app.get("/", function(req, res){
-  res.sendFile(__dirname); // sendFile transfers the file over to the file when a request is made.
+  res.sendFile(__dirname + "/index.html"); // sendFile transfers the file over to the file when a request is made.
 // __dirname gives the file path of the current file no matter where it is hosted
 });
 

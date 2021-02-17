@@ -1,4 +1,2 @@
-# const url = "https://api.openweathermap.org/data/2.5/weather?q=paris&appid=57b3808da7a08764de3a87288de77391&units=metric";
-
 # keys
 /keys.js

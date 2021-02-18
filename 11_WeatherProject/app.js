@@ -43,6 +43,8 @@ app.listen(3000, function () {
     console.log("The server is running on port 3000");
 })
 
+
+// Old code:
 // app.get("/", function (req, res) { // what happens when the user tries to go to my home page
 //     // without gitignore, we would declare the variable "url" here, with the api key
 
@@ -66,7 +68,6 @@ app.listen(3000, function () {
 
 //     // res.send("Server is up and running") // there can only be 1 res.send in any app method.
 // })
-
 
 
 

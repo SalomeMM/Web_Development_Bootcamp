@@ -10,7 +10,7 @@ app.get("/", function (req, res) { // what happens when the user tries to go to 
     // without gitignore, we would declare the variable "url" here, with the api key
 
     https.get(url, function (response) {
-        console.log("hey" + response.statusCode);
+        console.log("status code: " + response.statusCode);
     });
 
     res.send("Server is up and running")

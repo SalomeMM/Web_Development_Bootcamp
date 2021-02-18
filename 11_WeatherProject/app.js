@@ -11,6 +11,12 @@ app.get("/", function (req, res) { // what happens when the user tries to go to 
 
     https.get(url, function (response) {
         console.log("status code: " + response.statusCode);
+
+        response.on("data", function(data){
+// console.log(data); //will show hexadecimal code for the json data. It would be more useful to have a JS object, like this:
+const weatherData = JSON.parse(data)
+console.log(weatherData);
+        })
     });
 
     res.send("Server is up and running")

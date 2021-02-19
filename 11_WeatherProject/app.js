@@ -9,7 +9,6 @@ app.use(bodyParser.urlencoded({
     extended: true
 })); // necessary code to start parsing through the body of the post request.
 
-
 app.get("/", function (req, res) {
     res.sendFile(__dirname + "/index.html");
 });

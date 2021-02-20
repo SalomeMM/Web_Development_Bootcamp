@@ -39,12 +39,12 @@
 </head>
 
 <body class="text-center">
-  <form class="form-signin">
+  <form action="/" class="form-signin" method="POST">
     <img class="mb-4" src="images\kiwi.png" alt="" width="100">
     <h1 class="h3 mb-3 font-weight-normal">Sign up to my Newsletter!</h1>
-    <input type="text" class="form-control top" placeholder="First Name" required="" autofocus="">
-    <input type="text" class="form-control middle" placeholder="Last Name" required="">
-    <input type="text" class="form-control bottom" placeholder="Email address" required="">
+    <input type="text" name="fName" class="form-control top" placeholder="First Name" required="" autofocus="">
+    <input type="text" name="lName" class="form-control middle" placeholder="Last Name" required="">
+    <input type="text" name="email" class="form-control bottom" placeholder="Email address" required="">
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign me up!</button>
     <a href="https://github.com/SalomeMM" class="mt-5 mb-3 text-muted">© <u>github.com/SalomeMM</u></a>
   </form>

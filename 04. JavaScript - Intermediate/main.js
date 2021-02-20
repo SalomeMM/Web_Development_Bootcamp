@@ -1,3 +1,5 @@
+//jshint esversion: 6
+
 // Random and pseudo-random number generation
 
 var n = Math.random(); // gives a number between 0 and 0.9999999999999999 (0.9 to 16 decimal places)
@@ -19,15 +21,15 @@ loveScore = Math.floor(loveScore); // will show 0-99
 // Add customized message depending on the love score obtained
 
 if (loveScore > 70) {
-    alert("Your love score is " + loveScore + "%." + " You love each other like Kanye loves Kanye")
+    alert("Your love score is " + loveScore + "%." + " You love each other like Kanye loves Kanye");
 }
 
 if (loveScore > 30 && loveScore <= 70) {
-    alert("Your love score is " + loveScore + "%.")
+    alert("Your love score is " + loveScore + "%.");
 }
 
 if (loveScore <= 30) {
-    alert("Your love score is " + loveScore + "%." + " You get together like oil and water")
+    alert("Your love score is " + loveScore + "%." + " You get together like oil and water");
 }
 
 
@@ -50,7 +52,7 @@ function bmiCalculator(weight, height) {
     return interpretation;
 }
 
-bmiCalculator(64, 1.75)
+bmiCalculator(64, 1.75);
 
 
 // --- Challenge: Leap year calculator challenge
@@ -60,7 +62,7 @@ bmiCalculator(64, 1.75)
 // except if that year is also evenly divisible by 100;
 // unless that year is also evenly divisible by 400.
 
-isLeap(2000)
+isLeap(2000);
 
 function isLeap(year) {
 
@@ -101,7 +103,7 @@ output.push(1); // pushes 1 to the end of the array
 output.pop; // removes the last item in the array
 
 // Instead of adding numbers manually, let's create a function
-var count = 1
+var count = 1;
 
 function fizzBuzz() {
 
@@ -168,7 +170,7 @@ function whosPaying(names) {
 
 // Printing the lyrics to the 99 bottles of beer song
 
-var numberOfBottles = 99
+var numberOfBottles = 99;
 while (numberOfBottles >= 0) {
     var bottleWord = "bottles";
     if (numberOfBottles === 1) {

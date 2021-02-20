@@ -31,7 +31,7 @@ app.post("/bmicalculator", function(req, res){
   var height = parseFloat(req.body.height);
   var bmi = (weight / Math.pow(height, 2)).toFixed(2);
   res.send("Your BMI is " + bmi);
-})
+});
 
 app.listen(3000, function() {
   console.log("Server is running on port 3000");

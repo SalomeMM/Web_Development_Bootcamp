@@ -98,7 +98,7 @@ function nextSequence() { // will generate the next colour
 function playSound(name) { // creates a sound for a specific colour. We will call it when a random colour is selected and when a user clicks on a chosen button.
     var audio = new Audio("sounds/" + name + ".mp3"); // play a sound for the clicked colour
     audio.play();
-};
+}
 
 
 function animatePress(currentColour) { // will animate the pressed colour

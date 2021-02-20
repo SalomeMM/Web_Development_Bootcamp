@@ -48,12 +48,12 @@ $("a").attr("href", "https://yahoo.com"); // 2 parameters, SET a new href
 /// --- Adding Event Listeners with jQuery
 $("h1").click(function () {
     $("h1").css("color", "purple");
-})
+});
 
 // in vanilla js, to add event listeners to all buttons we had to create a for loop.
 
 for (var i = 0; i < 5; i++) {
-    document.querySelectorAll("button")[i].addEventListener("click", function () {
+    document.querySelectorAll("button")[i].addEventListener("click", function() {
         document.querySelector("h1").style.color = "purple";
     });
 }
@@ -62,12 +62,12 @@ for (var i = 0; i < 5; i++) {
 
 $("button").click(function () { // we don't need a for loop because by selecting for button jQuery selects all the buttons and with click it will add the event listener on click to all of them.
     $("h1").css("color", "purple");
-})
+});
 
 // we can also do it with keydown:
 $("input").keydown(function (event) {
     console.log(event.key);
-})
+});
 
 // if we wanted to do the same as for the drum kit, adding the event listener to the whole document, we can do this:
 
@@ -80,14 +80,14 @@ $("input").keydown(function (event) {
 
 $(document).keydown(function (event) { // changing the target to "body" (with quotes) or the whole "document" (without quotes).
     $("h1").text(event.key);
-})
+});
 
 
 // Even more flexible way to add an event listener: use the method "on":
 
 $("h1").on("mouseover", function () { // example mouseover, but valid for any event: https://developer.mozilla.org/en-US/docs/Web/Events
     $("h1").css("color", "purple");
-})
+});
 
 
 /// --- Adding and Removing Elements with jQuery

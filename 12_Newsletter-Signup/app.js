@@ -43,7 +43,7 @@ app.post("/", function (req, res) {
 
     const options = {
         method: "POST",
-        auth: "salome1:*825ce866b31357b837e36d4fadd55bcf-us1",
+        auth: "salome1:825ce866b31357b837e36d4fadd55bcf-us1",
     };
 
     const request = https.request(url, options, function (response) {

@@ -1,5 +1,8 @@
 //jshint esversion: 6
 
+const apiKey = require("./keys").apiKey; // import mailchimp api key from git-ignored file
+const apiUrl = require("./keys").apiUrl; // import weather api key from git-ignored file
+
 const express = require("express");
 const https = require("https");
 const bodyParser = require("body-parser");
@@ -38,12 +41,11 @@ app.post("/", function (req, res) {
 
     const jsonData = JSON.stringify(data); // turn these data into a string
 
-    const url = "https://us1.api.mailchimp.com/3.0/lists/ec795f4281";
-    // server = us1.api...
+    const url = apiUrl;
 
     const options = {
         method: "POST",
-        auth: "salome1:825ce866b31357b837e36d4fadd55bcf-us1",
+        auth: "salome1:" + apiKey,
     };
 
     const request = https.request(url, options, function (response) {

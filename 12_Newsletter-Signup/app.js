@@ -75,7 +75,3 @@ app.post("/failure", function(req, res){
 app.listen(3000, function () {
     console.log("The server is running on port 3000");
 });
-
-
-// API Key: 825ce866b31357b837e36d4fadd55bcf-us1
-// unique id / audience id: ec795f4281

@@ -43,15 +43,15 @@ app.post("/", function (req, res) {
 
     const options = {
         method: "POST",
-        auth: "salome1:825ce866b31357b837e36d4fadd55bcf-us1",
+        auth: "salome1:*825ce866b31357b837e36d4fadd55bcf-us1",
     };
 
     const request = https.request(url, options, function (response) {
 
         if (response.statusCode === 200) {
-            res.send("Successfully subscribed!");
+            res.sendFile(__dirname + "/success.html");
         } else {
-            res.send("There was an error with signing up, please try again!");
+            res.sendFile(__dirname + "/failure.html");
         }
 
         response.on("data", function (data) {
@@ -64,6 +64,10 @@ app.post("/", function (req, res) {
 
 });
 
+app.post("/failure", function(req, res){
+    res.redirect("/");
+});
+// when "try again" button clicked: triggers post request to the failure route and that is gonna be caught by our server and redirect to the signup page
 
 
 app.listen(3000, function () {

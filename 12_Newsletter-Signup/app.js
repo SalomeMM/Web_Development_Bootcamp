@@ -72,6 +72,13 @@ app.post("/failure", function(req, res){
 // when "try again" button clicked: triggers post request to the failure route and that is gonna be caught by our server and redirect to the signup page
 
 
-app.listen(3000, function () {
+app.listen(process.env.PORT || 3000, function () { // dynamic port that Heroku will define on the go and/or listen on 3000
     console.log("The server is running on port 3000");
 });
+
+// static port
+// app.listen(3000, function () {
+//     console.log("The server is running on port 3000");
+// });
+
+// procfile is how heroku knows how to launch this app

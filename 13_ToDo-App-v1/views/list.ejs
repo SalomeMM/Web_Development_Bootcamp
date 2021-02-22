@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+</head>
+
+<body>
+
+    <h1><%= kindOfDay %></h1>
+    <ul>
+        <% for (var i=0; i<newListItems.length; i++) { %>
+        <li> <%= newListItems[i] %> </li>
+        <% } %>
+
+    </ul>
+
+    <form class="" action="/" method="post">
+        <!-- when submit button clicked, form makes post request to the home route and post "newItem" -->
+        <input type="text" name="newItem">
+        <button type="submit">Add</button>
+    </form>
+
+
+    <!-- <% if (kindOfDay === "Saturday" || kindOfDay === "Sunday") { %>
+    <h1 style="color: purple"><%= kindOfDay %> ToDo list</h1>
+    <% } else { %>
+    <h1 style="color: blue"><%= kindOfDay %> ToDo list</h1>
+    <% } %> -->
+
+</body>
+
+</html>

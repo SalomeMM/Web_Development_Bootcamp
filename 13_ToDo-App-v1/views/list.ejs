@@ -12,9 +12,10 @@
 
     <h1><%= kindOfDay %></h1>
     <ul>
-        <% for (var i=0; i<newListItems.length; i++) { %>
+        <% for (var i=0; i<newListItems.length; i++) { %> 
         <li> <%= newListItems[i] %> </li>
         <% } %>
+        <!-- 2nd for loop loops through the entire lenght of the array and renders a new li for each item inside the array -->
 
     </ul>
 
@@ -23,6 +24,7 @@
         <input type="text" name="newItem">
         <button type="submit">Add</button>
     </form>
+    <!-- 3rd when the user adds a new item, it gets saved as "newItem" and we trigger a post request to the home route -->
 
 
     <!-- <% if (kindOfDay === "Saturday" || kindOfDay === "Sunday") { %>

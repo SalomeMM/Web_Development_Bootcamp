@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-app.get("/", function (req, res) {
+app.get("/", function (req, res) { //5th this happens and we render the list again and pass over the now updated array with all of our list items
 
     var today = new Date();
 
@@ -25,7 +25,7 @@ app.get("/", function (req, res) {
 
     var day = today.toLocaleDateString("en-US", options);
 
-    res.render("list", {
+    res.render("list", { // 1st we render the day and the list with the pre-selected items
         kindOfDay: day,
         newListItems: items
     });
@@ -33,7 +33,7 @@ app.get("/", function (req, res) {
 
 app.post("/", function (req, res) { // receives the post request from the html form
     var item = req.body.newItem; // search for the value of "newItem", that has to match our input
-
+// 4th this catches the post request, get the newItem and save is as item and push it into the items array, and then we redirect to the home route
     items.push(item);
     console.log(item);
 

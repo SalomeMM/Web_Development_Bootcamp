@@ -6,42 +6,63 @@ const bodyParser = require("body-parser");
 const app = express(); // app constant by using express
 
 var items = ["Buy food", "Cook food", "Eat food"];
+var workItems = [];
 
 app.set("view engine", "ejs"); // tells our app to use EJS as its view engine. Always after declaring "app".
 
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
+app.use(express.static("public")); // for express to serve up the public folder as a static resource
 
-app.get("/", function (req, res) { //5th this happens and we render the list again and pass over the now updated array with all of our list items
+app.get("/", function (req, res) {
+  //5th this happens and we render the list again and pass over the now updated array with all of our list items
 
-    var today = new Date();
+  var today = new Date();
 
-    var options = {
-        weekday: "long",
-        day: "numeric",
-        month: "long",
-    };
+  var options = {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+  };
 
-    var day = today.toLocaleDateString("en-US", options);
+  var day = today.toLocaleDateString("en-US", options);
 
-    res.render("list", { // 1st we render the day and the list with the pre-selected items
-        kindOfDay: day,
-        newListItems: items
-    });
+  res.render("list", {
+    // 1st we render the day and the list with the pre-selected items
+    listTitle: day,
+    newListItems: items,
+  });
 });
 
-app.post("/", function (req, res) { // receives the post request from the html form
-    var item = req.body.newItem; // search for the value of "newItem", that has to match our input
-// 4th this catches the post request, get the newItem and save is as item and push it into the items array, and then we redirect to the home route
+app.post("/", function (req, res) {
+  // receives the post request from the html form
+
+  let item = req.body.newItem; // search for the value of "newItem", that has to match our input
+  // 4th this catches the post request, get the newItem and save is as item and push it into the items array, and then we redirect to the home route
+  let listTitle = req.body.list
+
+  if (req.body.list === "Work") {
+    workItems.push(item);
+    res.redirect("/work");
+  } else {
     items.push(item);
-    console.log(item);
-
     res.redirect("/"); // when a post request is triggered, we'll save the value of the new item in the item variable and will redirect to the home route, where "app.get" and will render the list template passing in both kindOfDay and newList
-
+  }
+  console.log("item: " + item, "list title: " + listTitle);
 });
 
-// res.redirect("/"); // when a post request is triggered, we'll save the value of the new item in the item variable and will redirect to the home route, where "app.get" and will render the list template passing in both kindOfDay and newList
+app.get("/work", function (req, res) {
+  res.render("list", { listTitle: "Work List", newListItems: workItems });
+});
+
+app.post("/work", function (req, res) {
+  let item = req.body.newItem;
+  workItems.push(item);
+  res.redirect("/work");
+});
 
 
 // var currentDay = today.getDay();
@@ -93,5 +114,11 @@ app.post("/", function (req, res) { // receives the post request from the html f
 // });
 
 app.listen(3000, function () {
-    console.log("Server is running on port 3000");
+  console.log("Server is running on port 3000");
 });
+
+// <!-- <% if (kindOfDay === "Saturday" || kindOfDay === "Sunday") { %>
+//     <h1 style="color: purple"><%= kindOfDay %> ToDo list</h1>
+//     <% } else { %>
+//     <h1 style="color: blue"><%= kindOfDay %> ToDo list</h1>
+//     <% } %> -->

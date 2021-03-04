@@ -55,14 +55,20 @@ app.get("/posts/:postName", function (req, res) {
 
   posts.forEach(function (post) {
     const storedTitle = _.lowerCase([post.title]);
+    const storedContent = _.lowerCase([post.content]);
     console.log(storedTitle);
 
     if (storedTitle === requestedTitle) {
+      res.render("post", {
+    title: post.title,
+    content: post.content
+  });
       console.log("It's a match!");
     } else {
       console.log("Not a match :(");
     }
   });
+  
 });
 
 // for (i = 0; i < posts.length; i++) {

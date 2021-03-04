@@ -3,6 +3,7 @@
 const express = require("express"); // import modules
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
+var _ = require('lodash');
 
 let posts = [];
 
@@ -23,7 +24,7 @@ app.use(express.static("public")); // tell express that our static files are hel
 app.get("/", function (req, res) {
   res.render("home", {
     startingContent: homeStartingContent,
-    posts: posts
+    posts: posts,
   }); // the page we want to render needs to be something .ejs and be inside a folder called views in the root of our maijn project in the same hierarchical level as app.js
   // console.log(posts);
 });
@@ -49,8 +50,28 @@ app.post("/compose", function (req, res) {
   res.redirect("/"); // this will take us to app.get("/"...
 });
 
+app.get("/posts/:postName", function (req, res) {
+  const requestedTitle = _.lowerCase([req.params.postName]);
 
+  posts.forEach(function (post) {
+    const storedTitle = _.lowerCase([post.title]);
+    console.log(storedTitle);
 
+    if (storedTitle === requestedTitle) {
+      console.log("It's a match!");
+    } else {
+      console.log("Not a match :(");
+    }
+  });
+});
+
+// for (i = 0; i < posts.length; i++) {
+//   if (requestedTitle === posts[i].title) {
+//     console.log("Match!")
+//   } else {
+//     console.log("Not a match :(")
+//   }
+// };
 
 app.listen(3000, function () {
   console.log("Server started on port 3000");

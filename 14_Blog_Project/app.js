@@ -16,7 +16,15 @@ app.use(bodyParser.urlencoded({extended: true})); // use body parser
 app.use(express.static("public")); // tell express that our static files are held inside the public folder
 
 app.get("/", function (req,res) {
-  res.render("home"); // the page we want to render needs to be something .ejs and be inside a folder called views in the root of our maijn project in the same hierarchical level as app.js 
+  res.render("home", {startingContent: homeStartingContent}); // the page we want to render needs to be something .ejs and be inside a folder called views in the root of our maijn project in the same hierarchical level as app.js 
+})
+
+app.get("/about", function (req,res) {
+  res.render("about", {aboutContent: aboutContent});
+})
+
+app.get("/contact", function (req,res) {
+  res.render("contact", {contactContent: contactContent});
 })
 
 

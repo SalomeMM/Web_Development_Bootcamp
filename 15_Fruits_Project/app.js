@@ -1,34 +1,72 @@
 // Mongo Server: start "mongod", quit CTRL + C
 
-const MongoClient = require("mongodb").MongoClient;
-const assert = require("assert"); // assert has to do with testing
+const mongoose = require("mongoose");
 
-// Connection URL
-const url = "mongodb://localhost:27017"; // standard port for mongo
+mongoose.connect("mongodb://localhost:27017/fruitsDB", {
+  useUnifiedTopology: true, // deprecation warnings
+  useNewUrlParser: true
+});
 
-// Database Name
-const dbName = "fruitsDB"; // if this DB doesn't exist, it will create it
+// Create our schema: blueprint or structure of our data into our MongoDB db:
 
-// Create a new MongoClient
-const client = new MongoClient(url, { useUnifiedTopology: true });
+const fruitSchema = new mongoose.Schema({
+  name: String,
+  rating: Number,
+  review: String
+})
 
-// Use connect method to connect to the Server
-client.connect(function (err) {
-  assert.equal(null, err);
-  console.log("Connected successfully to server");
-  // if this fails, get mongodb server up and running with "mongod"
+const personSchema = new mongoose.Schema({
+  name: String,
+  age: Number
+})
 
-  const db = client.db(dbName);
+// use the schema to create a mongoose model:
 
-  //   insertDocuments(db, function () {
-  //     client.close();
-  //   });
+const Fruit = mongoose.model("Fruit", fruitSchema); // mongoose will pluralize "Fruit" to name our collection
 
-  // either insert or find documents, leave 1 commented out
+const Person = mongoose.model("Person", personSchema); // mongoose will pluralize "Fruit" to name our collection
 
-  findDocuments(db, function () {
-    client.close();
-  });
+// now we can create a new object/fruit: (replaces native insert model)
+
+const fruit = new Fruit ({
+  name: "Apple",
+  rating: 7,
+  review: "Pretty solid as a fruit."
+});
+// fruit.save(); // save this fruit document into a "Fruits" collection inside our "fruitsDB"
+
+const person = new Person ({
+  name: "John",
+  age: 37
+});
+
+// person.save();
+
+const kiwi = new Fruit({
+  name: "Kiwi",
+  score: 10,
+  review: "The best fruit."
+})
+
+const orange = new Fruit({
+  name: "Orange",
+  score: 4,
+  review: "Too sour for me."
+})
+
+const banana = new Fruit({
+  name: "Banana",
+  score: 3,
+  review: "Weird texture."
+})
+
+// name of the mongoose model + insertMany + array of objects + callback for error
+Fruit.insertMany([kiwi, orange, banana], function (err) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("Successfully saved all the fruits to fruitsDB");
+  }
 });
 
 //CREATE A NEW COLLECTION

@@ -10,14 +10,22 @@ mongoose.connect("mongodb://localhost:27017/fruitsDB", {
 // Create our schema: blueprint or structure of our data into our MongoDB db:
 
 const fruitSchema = new mongoose.Schema({
-  name: String,
-  rating: Number,
+  name: { // let's add some validation
+    type: String,
+    required: [true, "Please check your data entry, no name specified!"]
+  },
+  rating: {
+    type: Number,
+    min: 1,
+    max: 10
+  },
   review: String,
 });
 
 const personSchema = new mongoose.Schema({
   name: String,
   age: Number,
+  favouriteFruit: fruitSchema
 });
 
 // use the schema to create a mongoose model:
@@ -29,16 +37,36 @@ const Person = mongoose.model("Person", personSchema); // mongoose will pluraliz
 // create a new object/fruit: (replaces native insert model)
 
 const fruit = new Fruit({
-  name: "Apple",
-  rating: 7,
-  review: "Pretty solid as a fruit.",
+  // name: "Apple",
+  rating: 8,
+  review: "Peaches are the best!",
 });
 // fruit.save(); // save this fruit document into a "Fruits" collection inside our "fruitsDB"
 
-const person = new Person({
-  name: "John",
-  age: 37,
+const pineapple = new Fruit({
+  name: "Pineapple",
+  rating: 4,
+  review: "Hard to peel."
 });
+// pineapple.save();
+
+const grapes = new Fruit({
+  name: "Grapes",
+  rating: 8,
+  review: "I like them a lot."
+})
+// grapes.save();
+
+const person = new Person({
+  name: "Amy",
+  age: 12,
+  favouriteFruit: pineapple
+});
+
+// const person = new Person({
+//   name: "John",
+//   age: 37,
+// });
 
 // person.save();
 
@@ -83,3 +111,27 @@ Fruit.find(function (err, fruits) {
     });
   }
 });
+
+// Person.updateOne({ name: "John" }, { favouriteFruit: grapes }, function (err) {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log("Successfully updated the document");
+//   }
+// });
+
+// Fruit.deleteOne({ name: "Peach" }, function (err) {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log("Successfully deleted the document");
+//   }
+// });
+
+// Person.deleteMany({ name: "John" }, function (err) {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log("Successfully deleted all the documents");
+//   }
+// });

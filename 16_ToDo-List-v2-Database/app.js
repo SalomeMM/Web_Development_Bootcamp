@@ -1,4 +1,6 @@
 //jshint esversion:6
+const mongoDBKey = require("./.env").mongoDBKey; // import mongo key from gitignored file
+const mongoDBUser = require("./.env").mongoDBUser;
 
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -12,7 +14,7 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost:27017/todolistDB", {
+mongoose.connect("mongodb+srv://" + mongoDBUser + ":" + mongoDBKey + "@cluster0.oiiop.mongodb.net/todolistDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

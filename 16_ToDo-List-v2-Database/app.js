@@ -83,14 +83,24 @@ app.get("/:customListName", function (req, res) {
 
 app.post("/", function (req, res) {
   const itemName = req.body.newItem;
+  const listName = req.body.list; // list is the name of the button on list.ejs
 
   const item = new Item({
     name: itemName,
   });
 
-  item.save(); // mongoose shortcut to "insertOne" or Many
+  if (listName === "Today") { // default list
+    item.save(); // mongoose shortcut to "insertOne" or Many
+    res.redirect("/");
+  } else {
+    List.findOne({ name: listName }, function (err, foundList) {
+      foundList.items.push(item);
+      foundList.save();
+      res.redirect("/" + listName) // this will take to app.get :customListName and render all items
+    })
+  }
 
-  res.redirect("/");
+  
 });
 
 app.post("/delete", function (req, res) {

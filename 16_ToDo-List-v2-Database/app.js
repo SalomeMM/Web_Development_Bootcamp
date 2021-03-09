@@ -18,6 +18,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 var _ = require("lodash");
+require('dotenv').config({ path: './.env' });
 
 const app = express();
 

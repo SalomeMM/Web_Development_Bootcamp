@@ -1,13 +1,13 @@
 //jshint esversion:6
-const mongoDBKey = require("./.env").mongoDBKey; // import mongo key from gitignored file
-const mongoDBUser = require("./.env").mongoDBUser;
+// const mongoDBKey = require("./.env").mongoDBKey; // import mongo key from gitignored file
+// const mongoDBUser = require("./.env").mongoDBUser;
 
-const aws = require('aws-sdk');
+// const aws = require('aws-sdk');
 
-let mongoKeys = new aws.S3({
-  mongoHerokuKey: process.env.mongoDBKey,
-  mongoHerokuUser: process.env.mongoDBUser
-});
+// let mongoKeys = new aws.S3({
+//   mongoHerokuKey: process.env.mongoDBKey,
+//   mongoHerokuUser: process.env.mongoDBUser
+// });
 
 // console.log(mongoKeys.mongoHerokuUser);
 

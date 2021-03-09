@@ -31,10 +31,17 @@ app.use(express.static("public"));
 //   useUnifiedTopology: true,
 // });
 
-mongoose.connect("mongodb+srv://" + mongoKeys.mongoHerokuUser + ":" + mongoKeys.mongoHerokuKey + "@cluster0.oiiop.mongodb.net/todolistDB", {
+var url = process.env.MONGOLAB_URI;
+
+mongoose.connect(url, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+
+// mongoose.connect("mongodb+srv://" + mongoKeys.mongoHerokuUser + ":" + mongoKeys.mongoHerokuKey + "@cluster0.oiiop.mongodb.net/todolistDB", {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
 
 const itemsSchema = {
   name: String,

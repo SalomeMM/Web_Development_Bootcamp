@@ -1,0 +1,10 @@
+# dependencies
+node_modules/
+
+# keys
+.env
+
+/node_modules
+npm-debog.log
+.DS_Store
+/*.env

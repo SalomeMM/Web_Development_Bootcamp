@@ -2,6 +2,18 @@
 const mongoDBKey = require("./.env").mongoDBKey; // import mongo key from gitignored file
 const mongoDBUser = require("./.env").mongoDBUser;
 
+const aws = require('aws-sdk');
+
+let mongoKeys = new aws.S3({
+  mongoHerokuKey: process.env.mongoDBKey,
+  mongoHerokuUser: process.env.mongoDBUser
+});
+
+// console.log(mongoKeys.mongoHerokuUser);
+
+// let mongoHerokuKey = process.env.mongoDBKey;
+// let mongoHerokuUser = process.env.mongoDBUser;
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -14,7 +26,12 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb+srv://" + mongoDBUser + ":" + mongoDBKey + "@cluster0.oiiop.mongodb.net/todolistDB", {
+// mongoose.connect("mongodb+srv://" + mongoDBUser + ":" + mongoDBKey + "@cluster0.oiiop.mongodb.net/todolistDB", {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
+
+mongoose.connect("mongodb+srv://" + mongoKeys.mongoHerokuUser + ":" + mongoKeys.mongoHerokuKey + "@cluster0.oiiop.mongodb.net/todolistDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -137,6 +154,11 @@ app.get("/about", function (req, res) {
   res.render("about");
 });
 
-app.listen(3000, function () {
-  console.log("Server started on port 3000");
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+
+app.listen(port, function () {
+  console.log("Server has started successfully.");
 });

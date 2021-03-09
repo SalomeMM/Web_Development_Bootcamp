@@ -2,5 +2,9 @@
 node_modules/
 
 # keys
-/keys.js
 .env
+
+/node_modules
+npm-debog.log
+.DS_Store
+/*.env

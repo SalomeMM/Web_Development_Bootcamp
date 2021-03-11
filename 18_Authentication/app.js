@@ -7,7 +7,9 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
 // const encrypt = require("mongoose-encryption"); // can also authenticate // substituted by md5
-const md5 = require("md5");
+// const md5 = require("md5"); // substituted by bcrypt
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
 
 const app = express();
 
@@ -26,7 +28,7 @@ mongoose.connect("mongodb://localhost:27017/userDB", {
   useUnifiedTopology: true,
 });
 
-const userSchema = new mongoose.Schema ({
+const userSchema = new mongoose.Schema({
   email: String,
   password: String,
 });
@@ -50,34 +52,38 @@ app.get("/register", function (req, res) {
 });
 
 app.post("/register", function (req, res) {
-  const newUser = new User({
-    email: req.body.username,
-    password: md5(req.body.password)
-  });
-  newUser.save(function (err) { // mongoose-encryption will encrypt the password
-    if (err) {
-      console.log(err);
-    } else {
-      res.render("secrets"); // no get request for secrets because we only want to render it when the user is registered or logged in
-    }
+  bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
+    const newUser = new User({
+      email: req.body.username,
+      password: hash
+    });
+    newUser.save(function (err) {
+      // mongoose-encryption will encrypt the password
+      if (err) {
+        console.log(err);
+      } else {
+        res.render("secrets"); // no get request for secrets because we only want to render it when the user is registered or logged in
+      }
+    });
   });
 });
 
 app.post("/login", function (req, res) {
-    const username = req.body.username; // the one that the user types when trying to log in
-    const password = md5(req.body.password);
-    User.findOne({ email: username }, function (err, foundUser) { //find the user in our DB, mongoose-encryption will decrypt the password
-        if (err) {
-            console.log(err);
-        } else {
-            if (foundUser) { // if the user is found
-                if (foundUser.password == password) { // and if that user has stored the same password as the one given now
-                    res.render("secrets"); // then render the secrets page
-                }
-            }
-
-        }
-    });
+  const username = req.body.username; // the one that the user types when trying to log in
+  const password = req.body.password;
+  User.findOne({ email: username }, function (err, foundUser) {
+    //find the user in our DB, mongoose-encryption will decrypt the password
+    if (err) {
+      console.log(err);
+    } else {
+      if (foundUser) { // if the user is found
+        bcrypt.compare(password, foundUser.password, function (err, result) {
+          if (result === true) // password with the hashing = stored password
+            res.render("secrets");
+        });
+      }
+    }
+  });
 });
 
 app.listen(3000, function () {

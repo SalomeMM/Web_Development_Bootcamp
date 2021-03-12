@@ -13,6 +13,8 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const findOrCreate = require("mongoose-findorcreate"); // works for passport.js's "findOrCreate" pseudo-code method
 
 const app = express();
 
@@ -25,11 +27,14 @@ app.use(
     extended: true,
   })
 );
-app.use(session({ // initialize session
-  secret: "Our little secret.",
-  resave: false,
-  saveUninitialized: false
-}));
+app.use(
+  session({
+    // initialize session
+    secret: "Our little secret.",
+    resave: false,
+    saveUninitialized: false,
+  })
+);
 
 app.use(passport.initialize()); // init passport
 app.use(passport.session()); // use passport for dealing with the sessions
@@ -43,23 +48,63 @@ mongoose.set("useCreateIndex", true);
 const userSchema = new mongoose.Schema({
   email: String,
   password: String,
+  googleId: String
 });
 
 userSchema.plugin(passportLocalMongoose); // use this to hass and salt our pw and save users into our mongo db
-
+userSchema.plugin(findOrCreate);
 // userSchema.plugin(encrypt, { secret: process.env.SECRET, encryptedFields: ["password"] }); // substituted by md5
 
 const User = new mongoose.model("User", userSchema);
 
 passport.use(User.createStrategy()); // create local login strategy
 
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
 
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function(err, user) {
+    done(err, user);
+  });
+});
+
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: process.env.CLIENT_ID,
+      clientSecret: process.env.CLIENT_SECRET,
+      callbackURL: "http://localhost:3000/auth/google/secrets",
+      userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo", // get the user profile information from userinfo instead of google+
+    },
+    function (accessToken, refreshToken, profile, cb) {
+      console.log(profile);
+      User.findOrCreate({ googleId: profile.id }, function (err, user) {
+        return cb(err, user);
+      });
+    }
+  )
+);
 
 app.get("/", function (req, res) {
   res.render("home");
 });
+
+app.get(
+  "/auth/google",
+  passport.authenticate("google", {
+    scope: ["profile"], // profile includes email and userID
+  })
+);
+
+app.get(
+  "/auth/google/secrets",
+  passport.authenticate("google", { failureRedirect: "/login" }),
+  function (req, res) {
+    // Successful authentication, redirect to secrets.
+    res.redirect("/secrets"); // will take the user to app.get("/secrets"...)
+  }
+);
 
 app.get("/login", function (req, res) {
   res.render("login");
@@ -77,27 +122,36 @@ app.get("/secrets", function (req, res) {
   }
 });
 
-app.post("/register", function (req, res) {
+app.get("/logout", function(req, res){
+  req.logout();
+  res.redirect("/");
+});
 
-  User.register({ username: req.body.username }, req.body.password, function (err, user) {
-    if (err) {
-      console.log(err);
-      res.redirect("/register");
-    } else {
-      passport.authenticate("local")(req, res, function () {
-        res.redirect("/secrets");
-      });
+app.post("/register", function (req, res) {
+  User.register(
+    { username: req.body.username },
+    req.body.password,
+    function (err, user) {
+      if (err) {
+        console.log(err);
+        res.redirect("/register");
+      } else {
+        passport.authenticate("local")(req, res, function () {
+          res.redirect("/secrets");
+        });
+      }
     }
-  });
+  );
 });
 
 app.post("/login", function (req, res) {
   const user = new User({
     username: req.body.username,
-    password: req.body.password
+    password: req.body.password,
   });
 
-  req.login(user, function (err) { // this method comes from passport.js
+  req.login(user, function (err) {
+    // this method comes from passport.js
     if (err) {
       console.log(err);
     } else {

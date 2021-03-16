@@ -11,24 +11,44 @@ function App() {
   // inside the function we get a new value (change), but want to keep the old values of the object, to change only 1
 
   function handleChange(event) {
-    const newValue = event.target.value;
-    const inputName = event.target.name;
+
+    const { value, name } = event.target;
 
     setFullName((prevValue) => {
-      if (inputName === "fName") {
+      if (name === "fName") {
         return {
-          fName: newValue,
+          fName: value,
           lName: prevValue.lName
         };
-      } else if (inputName === "lName") {
+      } else if (name === "lName") {
         return {
           fName: prevValue.fName,
-          lName: newValue
+          lName: value
         }
       }
       console.log(prevValue);
     });
   }
+
+  // function handleChange(event) {
+  //   const newValue = event.target.value;
+  //   const inputName = event.target.name;
+
+  //   setFullName((prevValue) => {
+  //     if (inputName === "fName") {
+  //       return {
+  //         fName: newValue,
+  //         lName: prevValue.lName
+  //       };
+  //     } else if (inputName === "lName") {
+  //       return {
+  //         fName: prevValue.fName,
+  //         lName: newValue
+  //       }
+  //     }
+  //     console.log(prevValue);
+  //   });
+  // }
 
   return (
     <div className="container">

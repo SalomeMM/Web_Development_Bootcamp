@@ -4,7 +4,7 @@ function App() {
   const [contact, setContact] = useState({
     fName: "",
     lName: "",
-    email: ""
+    email: "",
   });
 
   function handleChange(event) {
@@ -16,14 +16,17 @@ function App() {
         [name]: value
       };
     });
+
+    // refactored option, though not recommended because it is confusing: 
+    // setContact((prevValue) => ({ ...prevValue, [name]: value, }));
   }
 
   return (
     <div className="container">
       <h1>
-        Hello {contact.fName} {contact.lName}
-      </h1>
-      <p>{contact.email}</p>
+        Hello {contact.fName} {contact.lName}{" "}
+      </h1>{" "}
+      <p> {contact.email} </p>{" "}
       <form>
         <input
           onChange={handleChange}
@@ -43,8 +46,8 @@ function App() {
           value={contact.email}
           placeholder="Email"
         />
-        <button>Submit</button>
-      </form>
+        <button> Submit </button>{" "}
+      </form>{" "}
     </div>
   );
 }

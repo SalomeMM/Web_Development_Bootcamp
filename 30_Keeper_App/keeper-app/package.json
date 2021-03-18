@@ -6,6 +6,8 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.3",
@@ -14,7 +16,7 @@
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.1"
   },
-    "devDependencies": {
+  "devDependencies": {
     "typescript": "3.3.3"
   },
   "scripts": {

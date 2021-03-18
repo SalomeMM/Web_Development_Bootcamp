@@ -2,7 +2,7 @@
 
 * Instructor: Angela Yu, lead instructor at the London App Brewery  
 * Platform: Udemy  
-* Course link: https://www.udemy.com/course/the-complete-web-development-bootcamp/learn/lecture/12374106)  
+* Certificate link: https://www.udemy.com/certificate/UC-1bbfebde-b3cb-4c7d-9fb4-803fea772a08/)  
 
 Content:
 - Front-End Web Development

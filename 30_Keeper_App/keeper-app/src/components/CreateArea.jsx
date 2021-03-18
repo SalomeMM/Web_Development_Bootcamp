@@ -21,6 +21,10 @@ function CreateArea(props) {
 
   function submitNote(event) {
     props.onAdd(note); // calls onAdd() from App.jsx and passes currently created note
+    setNote({ // we set the state of the note to empty to clear out the create area after submitting a note
+      title: "",
+      content: ""
+    });
     event.preventDefault(); // prevents the page from reloading when clicking on the submit button
   };
 
